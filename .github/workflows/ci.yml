@@ -6,10 +6,12 @@ on:
   pull_request:
 
 jobs:
-  build-test:
+  build-test-scan:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4
@@ -18,5 +20,27 @@ jobs:
           java-version: "21"
           cache: maven
 
-      - name: Build & Test
+      - name: Build & Test (JaCoCo report)
         run: mvn -B clean verify
+
+      - name: Upload JaCoCo report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: target/site/jacoco/
+
+      - name: Trivy FS Scan (JSON report)
+        uses: aquasecurity/trivy-action@0.24.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          format: json
+          output: trivy-fs-report.json
+          severity: CRITICAL,HIGH,MEDIUM
+          ignore-unfixed: true
+
+      - name: Upload Trivy report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: trivy-report
+          path: trivy-fs-report.json
