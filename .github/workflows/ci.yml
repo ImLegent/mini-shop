@@ -45,6 +45,20 @@ jobs:
           name: trivy-report
           path: trivy-fs-report.json
 
+      - name: Summarize Trivy severities
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          path = "trivy-fs-report.json"
+          data = json.load(open(path, encoding="utf-8"))
+          c = Counter()
+          for r in data.get("Results", []):
+            for v in (r.get("Vulnerabilities") or []):
+              c[v.get("Severity","UNKNOWN")] += 1
+          print("Trivy severity counts:", dict(c))
+          PY
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         env:
@@ -52,3 +66,20 @@ jobs:
         with:
           args: >
             -Dsonar.projectVersion=run-${{ github.run_number }}
+
+      - name: Collect metrics (Sonar + Trivy + JaCoCo)
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION_NAME }}
+          TRIVY_REPORT: trivy-fs-report.json
+          JACOCO_XML: target/site/jacoco/jacoco.xml
+        run: python scripts/collect_metrics.py
+
+      - name: Upload metrics artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: run-metrics-${{ github.run_number }}
+          path: |
+            reports/run-metrics.json
+            reports/run-metrics.csv
