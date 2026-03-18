@@ -40,22 +40,4 @@ public class ShopController {
         Order order = orderService.createOrder(productIds);
         return ResponseEntity.ok(order);
     }
-
-    // Code Smell: Duplicate of getProductById
-    @GetMapping("/products/v2/{id}")
-    public ResponseEntity<Product> getProductByIdV2(@PathVariable String id) {
-        Product product = productService.getProductById(id);
-        if (product != null) {
-            return ResponseEntity.ok(product);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    // Code Smell: Duplicate of createOrder
-    @PostMapping("/orders/v2")
-    public ResponseEntity<Order> createOrderV2(@RequestBody List<String> productIds) {
-        Order order = orderService.createOrder(productIds);
-        return ResponseEntity.ok(order);
-    }
 }
