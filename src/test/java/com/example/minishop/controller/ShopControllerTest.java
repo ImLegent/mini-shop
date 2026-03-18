@@ -59,4 +59,22 @@ public class ShopControllerTest {
                 .andExpect(jsonPath("$.productIds[0]").value("1"))
                 .andExpect(jsonPath("$.status").value("CREATED"));
     }
+
+    @Test
+    public void shouldCreateOrderWithEmptyProductList() throws Exception {
+        mockMvc.perform(post("/orders")
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content("[]"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").exists())
+                .andExpect(jsonPath("$.totalAmount").value(0))
+                .andExpect(jsonPath("$.status").value("CREATED"));
+    }
+
+    @Test
+    public void shouldReturnBadRequestForMissingBody() throws Exception {
+        mockMvc.perform(post("/orders")
+                .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andExpect(status().isBadRequest());
+    }
 }
