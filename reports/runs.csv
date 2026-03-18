@@ -1,2 +1,2 @@
 run_id,date,github_run_number,commit_sha,branch,sonar_bugs,sonar_vulnerabilities,sonar_code_smells,sonar_security_hotspots,sonar_coverage_pct,sonar_duplications_pct,sonar_debt,sonar_quality_gate,trivy_critical,trivy_high,trivy_medium,notes
-0,YYYY-MM-DD,NNN,abcdef123456,main,,,,,,,"",,0,0,0,0,"Baseline (clean project, pipeline green)"
+0,2026-01-30,10,301200d995bb5f0792169b60636faca6a60aab05,main,0,0,0,0,78.7,0.0,"","",1,13,12,"Baseline run (pipeline green, clean Sonar findings)"
