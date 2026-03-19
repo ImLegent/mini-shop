@@ -5,3 +5,4 @@ run_id,date,github_run_number,commit_sha,branch,sonar_bugs,sonar_vulnerabilities
 3,2026-03-18,15,457e008a2e4a3fcf1b4700f07521e3e69c7fc72e,main,0,0,0,0,94.4,0.0,"","",1,16,13,"Run 3: Fixed code smells"
 4,2026-03-18,16,3d2dab4cd26a106e710c7ec459cde80e7ea363d8,main,0,0,0,0,78.5,0.0,"","",1,16,13,"Run 4: Added new class without tests; coverage decreased"
 5,2026-03-19,17,0a60b3ce31830bd58fcfc4d6d3f4b9be75994443,main,0,0,0,0,78.5,0.0,"","",1,14,11,"Run 5: Updated Spring Boot parent to 3.2.4 (dependency/security scan changed)"
+6,2026-03-19,18,2524cba9f653954ccadf303c4b8bb9c27452b9eb,main,0,0,0,0,78.5,0.0,"","",1,16,13,"Run 6: Reverted Spring Boot parent to 3.2.2"
