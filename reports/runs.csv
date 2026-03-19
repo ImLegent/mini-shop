@@ -6,3 +6,4 @@ run_id,date,github_run_number,commit_sha,branch,sonar_bugs,sonar_vulnerabilities
 4,2026-03-18,16,3d2dab4cd26a106e710c7ec459cde80e7ea363d8,main,0,0,0,0,78.5,0.0,"","",1,16,13,"Run 4: Added new class without tests; coverage decreased"
 5,2026-03-19,17,0a60b3ce31830bd58fcfc4d6d3f4b9be75994443,main,0,0,0,0,78.5,0.0,"","",1,14,11,"Run 5: Updated Spring Boot parent to 3.2.4 (dependency/security scan changed)"
 6,2026-03-19,18,2524cba9f653954ccadf303c4b8bb9c27452b9eb,main,0,0,0,0,78.5,0.0,"","",1,16,13,"Run 6: Reverted Spring Boot parent to 3.2.2"
+7,2026-03-19,19,0f00dee4680c87935ca5c5b7bc328f9e31431316,main,0,0,0,0,78.5,0.0,"","",0,13,12,"Run 7: Dependency override (Tomcat fix); Trivy critical reduced to 0"
