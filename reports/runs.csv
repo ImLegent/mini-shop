@@ -3,3 +3,4 @@ run_id,date,github_run_number,commit_sha,branch,sonar_bugs,sonar_vulnerabilities
 1,2026-03-18,13,5c7d11c043c3cbc5b5da6e37ebc1ce0a6cf17816,main,0,0,0,0,94.4,0.0,"","",1,16,13,"Run 1: Added tests; coverage increased"
 2,2026-03-18,14,95ffa52b5de252894cddf28757acc493855ff4ef,main,0,0,2,0,86.6,0.0,"","",1,16,13,"Run 2: Increased code smells"
 3,2026-03-18,15,457e008a2e4a3fcf1b4700f07521e3e69c7fc72e,main,0,0,0,0,94.4,0.0,"","",1,16,13,"Run 3: Fixed code smells"
+4,2026-03-18,16,3d2dab4cd26a106e710c7ec459cde80e7ea363d8,main,0,0,0,0,78.5,0.0,"","",1,16,13,"Run 4: Added new class without tests; coverage decreased"
