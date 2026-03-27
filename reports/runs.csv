@@ -9,3 +9,4 @@ run_id,date,github_run_number,commit_sha,branch,sonar_bugs,sonar_vulnerabilities
 7,2026-03-19,19,0f00dee4680c87935ca5c5b7bc328f9e31431316,main,0,0,0,0,78.5,0.0,"","",0,13,12,"Run 7: Dependency override (Tomcat fix); Trivy critical reduced to 0"
 8,2026-03-19,20,de6632d4b33cc94fff6a02447109332c2a77c7cf,main,0,0,0,0,78.5,0.0,"","",1,16,13,"Run 8: Removed Tomcat override (rollback); Trivy critical returned"
 9,2026-03-19,22,b3736e539fc3d807d7e3b664a113c6b315816787,main,0,0,0,0,78.5,0.0,"","",2,16,14,"Run 9: Added new dependency (security scan changed; Trivy critical increased)"
+10,2026-03-19,23,4de5334fa858ff4633039fe6b6fef57538cc5f0b,main,0,0,0,0,78.5,0.0,"","",1,16,13,"Run 10: Removed added dependency (rollback); Trivy returned to previous counts"
